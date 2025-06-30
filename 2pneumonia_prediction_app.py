@@ -1,6 +1,6 @@
 # pneumonia_prediction_app.py
 import streamlit as st
-import joblib
+from joblib import load
 import pandas as pd
 import shap
 import matplotlib.pyplot as plt
