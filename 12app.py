@@ -94,8 +94,7 @@ def user_input_features():
         with col1.expander("Hemodynamic Indicators", expanded=True):
               ef = st.slider('mean arterial pressure (mmHg)', 30, 180, 80,step=5.0,format="%d"
                          )
-            cpb = st.number_input('temperature', 35, 43, 37, step=0.1,
-                                format="%d")
+            cpb = st.number_input('temperature', 35, 43, 37, step=0.1)
             scr = st.number_input('Serum Creatinine (μmol/L)', 20.0, 500.0, 80.0, step=5.0,
                                 format="%.1f", help="Renal function marker (normal: M 53-106, F 44-97)")
         
