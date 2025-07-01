@@ -8,7 +8,7 @@ from loguru import logger
 
 # Page configuration
 st.set_page_config(
-    page_title="Postoperative Pneumonia Prediction APP",
+    page_title="VAP Prediction APP",
     page_icon="🏥",
     layout="wide",
     initial_sidebar_state="expanded"
