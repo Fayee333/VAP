@@ -23,10 +23,10 @@ st.set_page_config(
 
 # 特征名称映射
 FEATURE_MAPPING = {
-    'EF': 'Ejection Fraction (%)',
-    'CPB': 'Cardiopulmonary Bypass Time (min)',
+     'EF': 'mean arterial pressure (mmHg)',
+    'CPB': 'temperature',
     'SCr': 'Serum Creatinine (μmol/L)',
-    'BL': 'Intraoperative Blood Loss (mL)',
+    'BL': 'age (year)',
     'Gender': 'Gender',
     'PWR': 'Platelet/WBC Ratio',
     'TBIL': 'Total Bilirubin (μmol/L)'
@@ -92,16 +92,16 @@ def user_input_features():
         col1, col2 = st.columns(2)
         
         with col1.expander("Hemodynamic Indicators", expanded=True):
-            ef = st.slider('Ejection Fraction (%)', 30, 100, 60,
-                         help="Cardiac function indicator (normal range: 50-70%)")
-            cpb = st.number_input('CPB Time (minutes)', 0, 600, 120, step=5,
-                                format="%d", help="Duration of cardiopulmonary bypass")
+              ef = st.slider('mean arterial pressure (mmHg)', 30, 180, 80,step=5.0,format="%d"
+                         )
+            cpb = st.number_input('temperature', 35, 43, 37, step=0.1,
+                                format="%d")
             scr = st.number_input('Serum Creatinine (μmol/L)', 20.0, 500.0, 80.0, step=5.0,
                                 format="%.1f", help="Renal function marker (normal: M 53-106, F 44-97)")
         
         with col2.expander("Other Parameters"):
-            bl = st.number_input('Blood Loss (mL)', 0, 5000, 500, step=50,
-                               format="%d", help="Total intraoperative blood loss")
+              bl = st.number_input('age (year)', 18, 100, 50, step=5,
+                               format="%d")
             gender = st.radio("Gender", ['Male', 'Female'], horizontal=True,
                             help="Biological sex")
             pwr = st.number_input('Platelet/WBC Ratio', 0.0, 50.0, 20.0, step=0.5,
