@@ -1,3 +1,3 @@
 [server]
-port = 8502
+port = 9001
 enableCORS = false
