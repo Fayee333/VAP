@@ -92,15 +92,14 @@ def user_input_features():
         col1, col2 = st.columns(2)
         
         with col1.expander("Hemodynamic Indicators", expanded=True):
-            ef = st.slider('mean arterial pressure (mmHg)', 30, 180, 80,step=5.0,format="%d"
+            ef = st.slider('mean arterial pressure (mmHg)', 30, 180, 80,step=5.0
                          )
-            cpb = st.number_input('temperature', 35, 43, 37, step=0.1,format="%d")
+            cpb = st.number_input('temperature', 35, 43, 37, step=0.1)
             scr = st.number_input('Serum Creatinine (μmol/L)', 20.0, 500.0, 80.0, step=5.0,
                                 format="%.1f", help="Renal function marker (normal: M 53-106, F 44-97)")
         
         with col2.expander("Other Parameters"):
-            bl = st.number_input('age (year)', 18, 100, 50, step=5,
-                               format="%d")
+            bl = st.number_input('age (year)', 18, 100, 50, step=5)
             gender = st.radio("Gender", ['Male', 'Female'], horizontal=True,
                             help="Biological sex")
             pwr = st.number_input('Platelet/WBC Ratio', 0.0, 50.0, 20.0, step=0.5,
@@ -156,7 +155,7 @@ def plot_shap_explanation(model, input_df):
 
 # ----------- 主界面 -----------
 def main():
-    st.title("Postoperative pneumonia after cardiac surgery")
+    st.title("VAP Prediction APP")
     st.markdown("---")
     
     # 加载模型
