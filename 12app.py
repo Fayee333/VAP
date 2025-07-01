@@ -92,14 +92,14 @@ def user_input_features():
         col1, col2 = st.columns(2)
         
         with col1.expander("Hemodynamic Indicators", expanded=True):
-              ef = st.slider('mean arterial pressure (mmHg)', 30, 180, 80,step=5.0,format="%d"
+            ef = st.slider('mean arterial pressure (mmHg)', 30, 180, 80,step=5.0,format="%d"
                          )
-            cpb = st.number_input('temperature', 35, 43, 37, step=0.1)
+            cpb = st.number_input('temperature', 35, 43, 37, step=0.1,format="%d")
             scr = st.number_input('Serum Creatinine (μmol/L)', 20.0, 500.0, 80.0, step=5.0,
                                 format="%.1f", help="Renal function marker (normal: M 53-106, F 44-97)")
         
         with col2.expander("Other Parameters"):
-              bl = st.number_input('age (year)', 18, 100, 50, step=5,
+            bl = st.number_input('age (year)', 18, 100, 50, step=5,
                                format="%d")
             gender = st.radio("Gender", ['Male', 'Female'], horizontal=True,
                             help="Biological sex")
