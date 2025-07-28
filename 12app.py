@@ -95,15 +95,15 @@ def user_input_features():
             ef = st.slider('床头抬高（°）', 0, 45, 30,step=1
                          )
             cpb = st.number_input('机械通气时间（小时）', 0, 480, 240, step=5)
-            scr = st.number_input('APACHEII评分', 0, 71, 20, step=1.0,
+            scr = st.number_input('APACHEII评分', 0, 71, 20, step=1,
                                 format="%.1f")
         
         with col2.expander("Other Parameters"):
             bl = st.number_input('年龄（岁）', 18, 100, 50, step=5)
             gender = st.radio("胃食管反流疾病", ['是', '否'], horizontal=True)
-            pwr = st.number_input('入住ICU时间（天）', 0, 50, 20.0, step=1,
+            pwr = st.number_input('入住ICU时间（天）', 0, 50, 20.0, step=1.0,
                                 format="%.1f")
-            tbil = st.number_input('GCS评分',0, 15, 7, step=1.0,
+            tbil = st.number_input('GCS评分',0, 15, 7, step=1,
                                  format="%.1f")
 
     return pd.DataFrame([[ef, cpb, scr, bl, 1 if gender == 'Male' else 0, pwr, tbil]],
