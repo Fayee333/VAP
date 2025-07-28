@@ -23,13 +23,13 @@ st.set_page_config(
 
 # 特征名称映射
 FEATURE_MAPPING = {
-     'EF': 'mean arterial pressure (mmHg)',
-    'CPB': 'temperature',
-    'SCr': 'Serum Creatinine (μmol/L)',
-    'BL': 'age (year)',
-    'Gender': 'Gender',
-    'PWR': 'Platelet/WBC Ratio',
-    'TBIL': 'Total Bilirubin (μmol/L)'
+     'EF': '床头抬高 (°)',
+    'CPB': '机械通气时间（小时）',
+    'SCr': 'APACHEII评分',
+    'BL': '年龄（岁）',
+    'Gender': '胃食管反流疾病',
+    'PWR': '入住ICU时间（天）',
+    'TBIL': 'GCS评分'
 }
 
 # ----------- 模型加载函数 -----------
@@ -92,20 +92,19 @@ def user_input_features():
         col1, col2 = st.columns(2)
         
         with col1.expander("Hemodynamic Indicators", expanded=True):
-            ef = st.slider('mean arterial pressure (mmHg)', 30, 180, 80,step=5
+            ef = st.slider('床头抬高（°）', 0, 45, 30,step=1
                          )
-            cpb = st.number_input('temperature', 35.0, 43.0, 37.0, step=0.1)
-            scr = st.number_input('Serum Creatinine (μmol/L)', 20.0, 500.0, 80.0, step=5.0,
-                                format="%.1f", help="Renal function marker (normal: M 53-106, F 44-97)")
+            cpb = st.number_input('机械通气时间（小时）', 0, 480, 240, step=5)
+            scr = st.number_input('APACHEII评分', 0, 71, 20, step=1.0,
+                                format="%.1f")
         
         with col2.expander("Other Parameters"):
-            bl = st.number_input('age (year)', 18, 100, 50, step=5)
-            gender = st.radio("Gender", ['Male', 'Female'], horizontal=True,
-                            help="Biological sex")
-            pwr = st.number_input('Platelet/WBC Ratio', 0.0, 50.0, 20.0, step=0.5,
-                                format="%.1f", help="Inflammatory marker (normal range: 10-30)")
-            tbil = st.number_input('Total Bilirubin (μmol/L)', 5.0, 300.0, 20.0, step=5.0,
-                                 format="%.1f", help="Liver function marker (normal: 3.4-20.5)")
+            bl = st.number_input('年龄（岁）', 18, 100, 50, step=5)
+            gender = st.radio("胃食管反流疾病", ['是', '否'], horizontal=True)
+            pwr = st.number_input('入住ICU时间（天）', 0, 50, 20.0, step=1,
+                                format="%.1f")
+            tbil = st.number_input('GCS评分',0, 15, 7, step=1.0,
+                                 format="%.1f")
 
     return pd.DataFrame([[ef, cpb, scr, bl, 1 if gender == 'Male' else 0, pwr, tbil]],
                       columns=FEATURE_MAPPING.keys())
@@ -155,7 +154,7 @@ def plot_shap_explanation(model, input_df):
 
 # ----------- 主界面 -----------
 def main():
-    st.title("VAP Prediction APP")
+    st.title("机械通气患者误吸风险预测模型APP")
     st.markdown("---")
     
     # 加载模型
