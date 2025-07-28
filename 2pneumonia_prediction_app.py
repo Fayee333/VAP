@@ -47,7 +47,7 @@ def user_input_features():
         st.header("⚕️ Patient Parameters Input")
         
         with st.expander("Hemodynamic Indicators", expanded=True):
-            ef = st.slider('mean arterial pressure (mmHg)', 30, 180, 80,step=5.0,format="%d"
+            ef = st.slider('机械通气时间 (小时)', 0, 480, 240,step=1.0,format="%d"
                          )
             cpb = st.number_input('temperature', 35, 43, 37, step=0.1,
                                 format="%d")
