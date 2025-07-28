@@ -16,7 +16,7 @@ st.set_page_config(
 
 # Feature name mapping
 FEATURE_MAPPING = {
-    'EF': 'mean arterial pressure (mmHg)',
+    'EF': '床头高度 (°)',
     'CPB': 'temperature',
     'SCr': 'Serum Creatinine (μmol/L)',
     'BL': 'age (year)',
@@ -47,9 +47,9 @@ def user_input_features():
         st.header("⚕️ Patient Parameters Input")
         
         with st.expander("Hemodynamic Indicators", expanded=True):
-            ef = st.slider('机械通气时间 (小时)', 0, 480, 240,step=1.0,format="%d"
+            ef = st.slider('床头高度 (°)', 0, 45, 30,step=1.0,format="%d"
                          )
-            cpb = st.number_input('temperature', 35, 43, 37, step=0.1,
+            cpb = st.number_input('机械通气时间（小时）', 0, 480, 240, step=5,
                                 format="%d")
             scr = st.number_input('Serum Creatinine (μmol/L)', 20.0, 500.0, 80.0, step=5.0,
                                 format="%.1f", help="Renal function marker (normal: M 53-106, F 44-97)")
