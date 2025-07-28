@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 # 页面配置
 st.set_page_config(
-    page_title="VAP Prediction APP",
+    page_title="机械通气患者误吸风险预测模型APP",
     page_icon="🏥",
     layout="wide",
     initial_sidebar_state="expanded"
