@@ -23,13 +23,13 @@ st.set_page_config(
 
 # 特征名称映射
 FEATURE_MAPPING = {
-     'EF': '床头抬高 (°)',
-    'CPB': '机械通气时间（小时）',
-    'SCr': 'APACHEII评分',
+     'EF': 'Head of the bed elevated(°)',
+    'CPB': 'Duration of mechanical ventilation (hours)',
+    'SCr': 'APACHE II Score',
     'BL': 'age(year)',
-    'Gender': '胃食管反流疾病',
-    'PWR': '入住ICU时间（天）',
-    'TBIL': 'GCS评分'
+    'Gender': 'Gastroesophageal Reflux Disease',
+    'PWR': 'Length of stay in the ICU (days)',
+    'TBIL': 'Glasgow Coma Scale (GCS) Score'
 }
 
 # ----------- 模型加载函数 -----------
