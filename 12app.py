@@ -26,7 +26,7 @@ FEATURE_MAPPING = {
      'EF': '床头抬高 (°)',
     'CPB': '机械通气时间（小时）',
     'SCr': 'APACHEII评分',
-    'BL': '年龄（岁）',
+    'BL': 'age（year）',
     'Gender': '胃食管反流疾病',
     'PWR': '入住ICU时间（天）',
     'TBIL': 'GCS评分'
