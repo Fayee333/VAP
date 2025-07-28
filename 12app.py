@@ -96,15 +96,15 @@ def user_input_features():
             ef = st.slider('床头抬高（°）', 0, 45, 30, step=1)
             cpb = st.number_input('机械通气时间（小时）', 0, 480, 240, step=5)
             # 修正：确保当 step 为浮点数时，value 也是浮点数格式
-            scr = st.number_input('APACHEII评分', min_value=0, max_value=71, value=20.0, step=1.0, format="%.1f")
+            scr = st.number_input('APACHEII评分', min_value=0, max_value=71, value=20, step=1, format="%.1f")
         
         with col2.expander("Other Parameters"):
             bl = st.number_input('年龄（岁）', min_value=18, max_value=100, value=50, step=5)
             gender = st.radio("胃食管反流疾病", ['是', '否'], horizontal=True)
             # 这里也做了微调，保持参数一致性
-            pwr = st.number_input('入住ICU时间（天）', min_value=0, max_value=50, value=20.0, step=1.0, format="%.1f")
+            pwr = st.number_input('入住ICU时间（天）', min_value=0, max_value=50, value=20, step=1, format="%.1f")
             # 修正：确保当 step 为浮点数时，value 也是浮点数格式
-            tbil = st.number_input('GCS评分', min_value=0, max_value=15, value=7.0, step=1.0, format="%.1f")
+            tbil = st.number_input('GCS评分', min_value=0, max_value=15, value=7, step=1, format="%.1f")
 
     return pd.DataFrame([[ef, cpb, scr, bl, 1 if gender == '是' else 0, pwr, tbil]],
                       columns=FEATURE_MAPPING.keys())
